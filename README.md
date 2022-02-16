@@ -143,10 +143,13 @@ npx react-native run-android
 
 # Development of the project
 
+
 ## Create a new account for twitter.
 
 Below you will see different GUI screens made in Adobe Xd. Protyping an already existing app is essential as it reduces the mistakes you can make while managing Navigation.
 
+###### Welcome Screen
+![WelcomeScreen](https://user-images.githubusercontent.com/25863990/154191849-71fcdd5d-8a89-4780-8cb1-aa0b701dd06f.png)
 
 
-
+The Welcome Screen is the first screen a new user sees when opening this app. On pressing create account, the Create New Account navigation navigator is opened and on pressing Sign in the Sign in navigation navigator is opened
