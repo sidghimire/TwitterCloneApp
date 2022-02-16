@@ -10,11 +10,11 @@ We are using React Native CLI for this project.
 
 Inorder to create a new project type the follwoing in terminal/cmd:
 ```
-npx react-native init SweetTooth
+npx react-native init Twitter
 ```
 After the creation of this project type
 ```
-cd SweetTooth
+cd Twitter
 ```
 This will allow you to enter into the project directory where we will be installing some necessary dependencies before starting in the building process.
 ## Installing Dependencies
