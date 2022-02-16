@@ -153,6 +153,7 @@ Below you will see different GUI screens made in Adobe Xd. Protyping an already 
 
 
 The Welcome Screen is the first screen a new user sees when opening this app. On pressing create account, the Create New Account navigation navigator is opened and on pressing Sign in the Sign in navigation navigator is opened
+
 ![Create Your Account](https://user-images.githubusercontent.com/25863990/154215711-0f4c435b-6dd9-45d3-9d26-94b12cb31f54.png)
 
 This Window will allow the user to enter their credentials like email, phone, email and date of birth.
