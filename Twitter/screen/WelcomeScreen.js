@@ -2,7 +2,7 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>
@@ -23,8 +23,8 @@ const WelcomeScreen = () => {
         <View style={styles.underlineOrView}>
           <Text style={styles.orText}>Or</Text>
         </View>
-        <TouchableOpacity style={styles.buttonCreateAccount}>
-          <Text style={styles.buttonTwitterText}>Continue with Google</Text>
+        <TouchableOpacity activeOpacity={0.8} style={styles.buttonCreateAccount} onPress={()=>{navigation.navigate('CreateYourAccount1')}}>
+          <Text style={styles.buttonTwitterText}>Create new account</Text>
         </TouchableOpacity>
       </View>
       <Text style={styles.bottomText}>
@@ -32,7 +32,7 @@ const WelcomeScreen = () => {
       </Text>
       <View style={{flexDirection: 'row'}}>
         <Text style={styles.bottomText2}>Have an account already?</Text>
-        <TouchableOpacity onPress={()=>alert("Hi")}>
+        <TouchableOpacity>
           <Text style={styles.bottomText3}>Log in</Text>
         </TouchableOpacity>
       </View>
