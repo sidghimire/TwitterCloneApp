@@ -9,13 +9,25 @@ import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import DatePicker from 'react-native-date-picker';
 import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const CreateYourAccount1 = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [dob, setDob] = useState(new Date());
   const [dobPickerVisible, setDobPickerVisible] = useState(false);
-  console.log(dob.getUTCMonth());
+
+  const handleAddAccount = async () => {
+    try {
+      await AsyncStorage.setItem('email', email);
+      await AsyncStorage.setItem('name', name);
+      await AsyncStorage.setItem('dob', dob.toLocaleDateString());
+      navigation.navigate('CreateYourAccount2')
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
   return (
     <KeyboardAvoidingView behavior="height" style={styles.container}>
       <Text style={styles.titleText}>Create your account</Text>
@@ -67,12 +79,15 @@ const CreateYourAccount1 = ({navigation}) => {
       {email == '' || name == '' || dob == '' ? (
         <TouchableOpacity
           style={[styles.nextButton, styles.nextButtonDisabled]}
-          onPress={()=>navigation.navigate("CreateYourAccount2")}
+          onPress={() => navigation.navigate('CreateYourAccount2')}
           activeOpacity={0.8}>
           <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
       ) : (
-        <TouchableOpacity style={styles.nextButton} onPress={()=>navigation.navigate("CreateYourAccount2")} activeOpacity={0.8}>
+        <TouchableOpacity
+          onPress={handleAddAccount}
+          style={styles.nextButton}
+          activeOpacity={0.8}>
           <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
       )}

@@ -16,6 +16,8 @@ target 'Twitter' do
 
   pod 'react-native-date-picker', :path => '../node_modules/react-native-date-picker'
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-async-storage/async-storage'
+
   target 'TwitterTests' do
     inherit! :complete
     # Pods for testing

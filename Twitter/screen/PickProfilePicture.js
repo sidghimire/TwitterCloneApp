@@ -10,6 +10,8 @@ import React, {useState} from 'react';
 import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
 const CameraImage = require('../resources/images/cameraImage.png');
 
+
+
 const CreateYourAccount1 = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [image, setImage] = useState('');

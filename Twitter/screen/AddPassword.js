@@ -7,9 +7,20 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const CreateYourAccount1 = ({navigation}) => {
   const [password, setPassword] = useState('');
+
+  const handleAddAccount = async () => {
+    try {
+      await AsyncStorage.setItem('password', password);
+      navigation.navigate('PickProfilePicture')
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
   return (
     <KeyboardAvoidingView behavior="height" style={styles.container}>
       <Text style={styles.titleText}>You'll need a password</Text>
@@ -24,15 +35,15 @@ const CreateYourAccount1 = ({navigation}) => {
       />
       {password=="" ? (
         <TouchableOpacity
+          disabled={true}
           style={[styles.nextButton, styles.nextButtonDisabled]}
-          onPress={() => navigation.navigate('PickProfilePicture')}
           activeOpacity={0.8}>
           <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
       ) : (
         <TouchableOpacity
           style={styles.nextButton}
-          onPress={() => navigation.navigate('PickProfilePicture')}
+          onPress={handleAddAccount}
           activeOpacity={0.8}>
           <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
