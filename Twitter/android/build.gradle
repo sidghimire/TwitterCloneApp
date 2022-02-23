@@ -38,5 +38,14 @@ allprojects {
         }
         google()
         maven { url 'https://www.jitpack.io' }
+         mavenLocal()
+      jcenter()
+      maven { url "$rootDir/../node_modules/react-native/android" }
+
+      // ADD THIS
+      maven { url 'https://maven.google.com' }
+
+      // ADD THIS
+      maven { url "https://www.jitpack.io" }
     }
 }
